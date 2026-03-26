@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Icon STL – Project Timeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #b20f00;
+      --red-dim: rgba(178,15,0,0.12);
+      --ink:    #080808;
+      --ink2:   #1a1a1a;
+      --muted:  #6b7280;
+      --border: #e8eaed;
+      --bg:     #f7f7f8;
+      --white:  #ffffff;
+      --c1: #3b7ff5;
+      --c2: #8b5cf6;
+      --c3: #10b981;
+      --c4: #f59e0b;
+      --c5: #b20f00;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 13.5px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Header ─── */
+    header {
+      background: var(--ink);
+      padding: 0 52px;
+      display: flex;
+      align-items: stretch;
+      min-height: 88px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--red);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 85% 50%, var(--red-dim) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hd-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      padding: 24px 0;
+    }
+    header h1 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.2px;
+    }
+    .hd-sub {
+      margin-top: 6px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.38);
+      display: flex;
+      gap: 22px;
+    }
+    .hd-sub b { color: rgba(255,255,255,0.75); font-weight: 500; }
+
+    .hd-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 6px;
+    }
+    .hd-badge {
+      background: var(--red);
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .hd-agency {
+      font-size: 11px;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.2px;
+    }
+    .hd-agency span { color: var(--red); font-weight: 600; }
+
+    /* ─── Body ─── */
+    main { padding: 36px 52px 56px; max-width: 1280px; margin: 0 auto; }
+
+    /* ─── Summary strip ─── */
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .sum-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .sum-card .s-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .sum-card .s-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .sum-card .s-val.accent { color: var(--red); }
+
+    /* ─── Section head ─── */
+    .sh {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--muted);
+      margin: 32px 0 12px;
+    }
+
+    /* ─── Task table ─── */
+    .tbl-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .tbl-card table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .tbl-card thead th {
+      background: #f4f5f7;
+      padding: 10px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #8a92a0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tbl-card tbody td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #f3f4f6;
+      vertical-align: middle;
+    }
+    .tbl-card tbody tr:last-child td { border-bottom: none; }
+    .tbl-card tbody tr:not(.phase-row):hover td { background: #fcfcfd; }
+
+    .phase-row td {
+      background: #f7f8fa !important;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #8a92a0;
+      padding: 7px 16px !important;
+      border-bottom: 1px solid var(--border) !important;
+      border-top: 1px solid var(--border);
+    }
+    .phase-row td:first-child {
+      border-left: 3px solid var(--phase-color, #ddd);
+    }
+
+    .tid {
+      font-size: 11px;
+      color: #ccc;
+      font-family: ui-monospace, monospace;
+    }
+    .task-name { font-weight: 500; color: #1c1c28; }
+    .dt { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+    .dur-tag {
+      display: inline-block;
+      background: #f0f1f3;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #555;
+      font-family: ui-monospace, monospace;
+    }
+    .status-tag {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .status-done { background: #d1fae5; color: #065f46; }
+    .status-progress { background: #dbeafe; color: #1e40af; }
+    .status-blocked { background: #fee2e2; color: #991b1b; }
+    .status-pending { background: #f3f4f6; color: #6b7280; }
+
+    /* ─── Notes card ─── */
+    .notes-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 8px;
+      padding: 18px 22px;
+      font-size: 13px;
+      color: #374151;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .notes-card p { margin-bottom: 8px; }
+    .notes-card ul { margin: 0 0 8px 18px; }
+    .notes-card li { margin-bottom: 4px; }
+    .notes-card .fine {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 0;
+    }
+
+    /* ─── Gantt ─── */
+    .gantt-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .gantt-scroll { overflow-x: auto; }
+    .gantt-tbl {
+      border-collapse: collapse;
+      min-width: 960px;
+      width: 100%;
+    }
+    .gantt-tbl thead th {
+      height: 32px;
+      text-align: center;
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #d1d5db;
+      border-right: 1px solid #f5f5f7;
+      font-family: ui-monospace, monospace;
+      padding: 0;
+      background: #fafbfc;
+      border-bottom: 1px solid var(--border);
+    }
+    .gantt-tbl thead th.lbl-th {
+      width: 222px;
+      text-align: left;
+      padding-left: 16px;
+      border-right: 1px solid var(--border);
+      font-size: 10px;
+      color: #c0c4cc;
+      letter-spacing: 0.3px;
+    }
+    .gantt-tbl thead th.wk  { border-left: 1px solid #ebebeb; color: #a8b0bc; }
+    .gantt-tbl thead th.mnth { color: #6b7280; font-weight: 700; }
+
+    .g-row td {
+      height: 32px;
+      padding: 0;
+      border-bottom: 1px solid #f5f6f8;
+      border-right: 1px solid #f9f9fb;
+      position: relative;
+    }
+    .g-row td.lbl {
+      padding: 0 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #3d4450;
+      white-space: nowrap;
+      border-right: 1px solid var(--border);
+      background: var(--white);
+    }
+    .g-row td.wk { border-left: 1px solid #eef0f3; }
+
+    .g-phase td {
+      background: #f2f3f5;
+      height: 28px;
+      border-bottom: 1px solid #e2e4e8;
+      border-top: 1px solid #e2e4e8;
+    }
+    .g-phase td.lbl {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #5a6270;
+      border-right: 1px solid #dde0e6;
+      border-left: 4px solid var(--phase-color, #ddd);
+      background: #f2f3f5;
+      padding-left: 12px;
+    }
+    .g-phase td.wk { border-left: 1px solid #dde0e6; }
+
+    .bar {
+      position: absolute;
+      top: 6px;
+      height: 20px;
+    }
+
+    /* ─── Legend ─── */
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    .legend span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ld {
+      width: 10px; height: 10px;
+      border-radius: 2px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* ─── Footer ─── */
+    .ft {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      color: #c0c4cc;
+    }
+    .ft-hovers {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ft-hovers .dot {
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .ft-hovers a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .gantt-scroll { overflow: visible; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hd-left">
+    <h1>Beauty Icon STL &mdash; Website Revamp</h1>
+    <div class="hd-sub">
+      <span>Kickoff &nbsp;<b>Mar 16, 2026</b></span>
+      <span>Go-live &nbsp;<b>Apr 14, 2026</b></span>
+      <span>Updated &nbsp;<b>Mar 26, 2026</b></span>
+      <span>Platform &nbsp;<b>Shopify</b></span>
+    </div>
+  </div>
+  <div class="hd-right">
+    <div class="hd-badge">30-Day Plan</div>
+    <div class="hd-agency">Prepared by <span>Hovers</span> &nbsp;&middot;&nbsp; hovers.in</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Summary -->
+  <div class="summary">
+    <div class="sum-card">
+      <div class="s-label">Day</div>
+      <div class="s-val">11 <span style="font-size:12px;color:var(--muted);font-weight:400;">of 30</span></div>
+    </div>
+    <div class="sum-card">
+      <div class="s-label">Completed</div>
+      <div class="s-val" style="color:#059669;">8 <span style="font-size:12px;color:var(--muted);font-weight:400;">of 20</span></div>
+    </div>
+    <div class="sum-card">
+      <div class="s-label">Progress</div>
+      <div class="s-val accent">40%</div>
+    </div>
+    <div class="sum-card">
+      <div class="s-label">Go-Live</div>
+      <div class="s-val">Apr 14</div>
+    </div>
+  </div>
+
+  <!-- Task table -->
+  <div class="sh">Task Breakdown</div>
+  <div class="tbl-card">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:44px">#</th>
+          <th>Task</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Est.</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="phase-row" style="--phase-color: var(--c1)">
+          <td colspan="6">Phase 1 &mdash; Setup &amp; Data &nbsp;&bull;&nbsp; Mar 16 – 20</td>
+        </tr>
+        <tr>
+          <td class="tid">T01</td>
+          <td class="task-name">Shopify store setup &amp; custom theme scaffolding</td>
+          <td class="dt">Mar 16</td><td class="dt">Mar 17</td>
+          <td><span class="dur-tag">2d</span></td>
+          <td><span class="status-tag status-done">Done</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T02</td>
+          <td class="task-name">Branding &mdash; color system, Chic Icon font, logo</td>
+          <td class="dt">Mar 16</td><td class="dt">Mar 18</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-done">Done</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T03</td>
+          <td class="task-name">Product catalog &mdash; 88 products, 408+ SKUs, variant images</td>
+          <td class="dt">Mar 16</td><td class="dt">Mar 19</td>
+          <td><span class="dur-tag">4d</span></td>
+          <td><span class="status-tag status-done">Done</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T04</td>
+          <td class="task-name">Shopify product import &amp; catalog QA</td>
+          <td class="dt">Mar 18</td><td class="dt">Mar 20</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-blocked">Blocked</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T18</td>
+          <td class="task-name">Visual product catalog with images &mdash; for client approval</td>
+          <td class="dt">Mar 27</td><td class="dt">Mar 28</td>
+          <td><span class="dur-tag">2d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+
+        <tr class="phase-row" style="--phase-color: var(--c2)">
+          <td colspan="6">Phase 2 &mdash; Core Layout &nbsp;&bull;&nbsp; Mar 18 – 27</td>
+        </tr>
+        <tr>
+          <td class="tid">T05</td>
+          <td class="task-name">Sticky header, nav links &amp; mobile hamburger menu</td>
+          <td class="dt">Mar 18</td><td class="dt">Mar 21</td>
+          <td><span class="dur-tag">4d</span></td>
+          <td><span class="status-tag status-done">Done</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T06</td>
+          <td class="task-name">Footer &mdash; nav groups, social icons, newsletter, policy pages</td>
+          <td class="dt">Mar 20</td><td class="dt">Mar 26</td>
+          <td><span class="dur-tag">4d</span></td>
+          <td><span class="status-tag status-done">Done</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T07</td>
+          <td class="task-name">Homepage &mdash; hero video banner, icon bar, guarantee section</td>
+          <td class="dt">Mar 19</td><td class="dt">Mar 26</td>
+          <td><span class="dur-tag">5d</span></td>
+          <td><span class="status-tag status-done">Done</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T08</td>
+          <td class="task-name">Homepage &mdash; category tiles, collections, product carousel, gallery, Why Us</td>
+          <td class="dt">Mar 23</td><td class="dt">Mar 26</td>
+          <td><span class="dur-tag">5d</span></td>
+          <td><span class="status-tag status-done">Done</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T19</td>
+          <td class="task-name">Color scheme revision &mdash; B&amp;W primary, dark pink accent (luxury)</td>
+          <td class="dt">Mar 27</td><td class="dt">Mar 29</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+
+        <tr class="phase-row" style="--phase-color: var(--c3)">
+          <td colspan="6">Phase 3 &mdash; Product Pages &nbsp;&bull;&nbsp; Mar 25 – Apr 5</td>
+        </tr>
+        <tr>
+          <td class="tid">T09</td>
+          <td class="task-name">Collection page &mdash; filters sidebar, product grid, infinite scroll</td>
+          <td class="dt">Mar 25</td><td class="dt">Mar 30</td>
+          <td><span class="dur-tag">6d</span></td>
+          <td><span class="status-tag status-progress">In Progress</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T10</td>
+          <td class="task-name">Single product page &mdash; gallery, variants, add to cart, accordions, FAQs</td>
+          <td class="dt">Mar 29</td><td class="dt">Apr 5</td>
+          <td><span class="dur-tag">8d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T20</td>
+          <td class="task-name">Google Reviews scrape &mdash; fetch all reviews from Google Business</td>
+          <td class="dt">Mar 27</td><td class="dt">Mar 29</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-progress">In Progress</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T11</td>
+          <td class="task-name">Reviews integration &mdash; homepage snippet (top reviews) &amp; dedicated reviews page</td>
+          <td class="dt">Apr 2</td><td class="dt">Apr 5</td>
+          <td><span class="dur-tag">4d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+
+        <tr class="phase-row" style="--phase-color: var(--c4)">
+          <td colspan="6">Phase 4 &mdash; Features &amp; QA &nbsp;&bull;&nbsp; Apr 5 – 12</td>
+        </tr>
+        <tr>
+          <td class="tid">T12</td>
+          <td class="task-name">Email popup &amp; promo banner</td>
+          <td class="dt">Apr 5</td><td class="dt">Apr 7</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T13</td>
+          <td class="task-name">Testimonials section &mdash; powered by Google Reviews data</td>
+          <td class="dt">Apr 5</td><td class="dt">Apr 7</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T14</td>
+          <td class="task-name">Responsive QA &mdash; mobile, tablet &amp; desktop</td>
+          <td class="dt">Apr 6</td><td class="dt">Apr 9</td>
+          <td><span class="dur-tag">4d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T15</td>
+          <td class="task-name">Performance pass &mdash; lazy loading, image &amp; video compression</td>
+          <td class="dt">Apr 8</td><td class="dt">Apr 10</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+        <tr>
+          <td class="tid">T16</td>
+          <td class="task-name">Accessibility pass &mdash; ARIA labels, keyboard nav, contrast</td>
+          <td class="dt">Apr 9</td><td class="dt">Apr 11</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+
+        <tr class="phase-row" style="--phase-color: var(--c5)">
+          <td colspan="6">Phase 5 &mdash; Launch &nbsp;&bull;&nbsp; Apr 12 – 14</td>
+        </tr>
+        <tr>
+          <td class="tid">T17</td>
+          <td class="task-name">Final QA, client review &amp; go-live</td>
+          <td class="dt">Apr 12</td><td class="dt">Apr 14</td>
+          <td><span class="dur-tag">3d</span></td>
+          <td><span class="status-tag status-pending">Pending</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Notes -->
+  <div class="sh" style="margin-top:28px">Notes</div>
+  <div class="notes-card">
+    <p><strong>Received from client (Mar 24):</strong></p>
+    <ul>
+      <li>Hero video &mdash; Instagram reel provided &#10003;</li>
+      <li>Return/refund policy &mdash; using Mayvenn's policy &#10003;</li>
+      <li>Testimonials source &mdash; Google Business reviews (all reviews to be scraped) &#10003;</li>
+    </ul>
+    <p style="margin-top:10px;"><strong>Client-requested changes (Mar 25):</strong></p>
+    <ul>
+      <li>Color scheme update &mdash; Main: Black &amp; White | Accent: Dark Pink (luxury feel)</li>
+      <li>Visual product catalog with images needed for final client approval before import</li>
+      <li>Reviews strategy: homepage snippet for top reviews + dedicated page for all reviews</li>
+    </ul>
+    <p style="margin-top:10px;"><strong>Still pending:</strong></p>
+    <ul>
+      <li>Final client approval on product list (visual catalog being prepared)</li>
+      <li>Decision on existing products in store &mdash; archive or delete?</li>
+    </ul>
+    <p class="fine" style="margin-top:10px;">Progress sync meeting scheduled for Friday, Mar 27.</p>
+  </div>
+
+  <!-- Gantt -->
+  <div class="sh" style="margin-top:28px">Gantt Chart &mdash; Mar 16 to Apr 14, 2026</div>
+
+  <div class="legend">
+    <span><i class="ld" style="background:var(--c1)"></i> Setup &amp; Data</span>
+    <span><i class="ld" style="background:var(--c2)"></i> Core Layout</span>
+    <span><i class="ld" style="background:var(--c3)"></i> Product Pages</span>
+    <span><i class="ld" style="background:var(--c4)"></i> Features &amp; QA</span>
+    <span><i class="ld" style="background:var(--c5)"></i> Launch</span>
+  </div>
+
+  <div class="gantt-card">
+    <div class="gantt-scroll">
+      <div id="gantt"></div>
+    </div>
+  </div>
+
+  <div class="ft">
+    <span>Beauty Icon STL &mdash; Shopify Website Revamp &nbsp;&middot;&nbsp; March 2026</span>
+    <div class="ft-hovers">
+      <span class="dot"></span>
+      Prepared by &nbsp;<a href="https://hovers.in" target="_blank">hovers.in</a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const START = new Date('2026-03-16');
+  const DAYS  = 30;
+
+  const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function offset(n) {
+    const r = new Date(START);
+    r.setDate(r.getDate() + n);
+    return r;
+  }
+
+  const rows = [
+    { ph: true,  label: 'Phase 1 — Setup & Data',              c: 'c1' },
+    { label: 'T01 · Store setup & theme scaffolding',           s:  0, e:  2, c: 'c1' },
+    { label: 'T02 · Branding (colors, font, logo)',             s:  0, e:  3, c: 'c1' },
+    { label: 'T03 · Product catalog build',                     s:  0, e:  4, c: 'c1' },
+    { label: 'T04 · Shopify import & QA',                       s:  2, e:  5, c: 'c1' },
+    { label: 'T18 · Visual product catalog (client approval)',  s: 11, e: 13, c: 'c1' },
+
+    { ph: true,  label: 'Phase 2 — Core Layout',               c: 'c2' },
+    { label: 'T05 · Header & navigation',                       s:  2, e:  6, c: 'c2' },
+    { label: 'T06 · Footer & policy pages',                     s:  4, e:  8, c: 'c2' },
+    { label: 'T07 · Homepage — hero, icon bar, guarantee',      s:  3, e:  8, c: 'c2' },
+    { label: 'T08 · Homepage — tiles, carousels, gallery',      s:  7, e: 12, c: 'c2' },
+    { label: 'T19 · Color scheme revision (B&W + pink)',        s: 11, e: 14, c: 'c2' },
+
+    { ph: true,  label: 'Phase 3 — Product Pages',             c: 'c3' },
+    { label: 'T09 · Collection / listing page',                 s:  9, e: 15, c: 'c3' },
+    { label: 'T10 · Single product page',                       s: 13, e: 21, c: 'c3' },
+    { label: 'T20 · Google Reviews scrape',                     s: 11, e: 14, c: 'c3' },
+    { label: 'T11 · Reviews page & homepage snippet',             s: 17, e: 21, c: 'c3' },
+
+    { ph: true,  label: 'Phase 4 — Features & QA',             c: 'c4' },
+    { label: 'T12 · Email popup & promo banner',                s: 20, e: 23, c: 'c4' },
+    { label: 'T13 · Testimonials (Google Reviews)',              s: 20, e: 23, c: 'c4' },
+    { label: 'T14 · Responsive QA',                             s: 21, e: 25, c: 'c4' },
+    { label: 'T15 · Performance optimization',                  s: 23, e: 26, c: 'c4' },
+    { label: 'T16 · Accessibility pass',                        s: 24, e: 27, c: 'c4' },
+
+    { ph: true,  label: 'Phase 5 — Launch',                    c: 'c5' },
+    { label: 'T17 · Final QA & go-live',                        s: 27, e: 30, c: 'c5' },
+  ];
+
+  const tbl = document.createElement('table');
+  tbl.className = 'gantt-tbl';
+
+  const thead = tbl.createTHead();
+  const hr = thead.insertRow();
+  const th0 = document.createElement('th');
+  th0.className = 'lbl-th';
+  th0.textContent = 'Task';
+  hr.appendChild(th0);
+
+  for (let i = 0; i < DAYS; i++) {
+    const dt  = offset(i);
+    const th  = document.createElement('th');
+    const day = dt.getDate();
+    const isMon = dt.getDay() === 1;
+
+    if (day === 1) {
+      th.textContent = MO[dt.getMonth()];
+      th.classList.add('mnth');
+    } else {
+      th.textContent = day;
+    }
+    if (isMon) th.classList.add('wk');
+    hr.appendChild(th);
+  }
+
+  const tbody = tbl.createTBody();
+  rows.forEach(r => {
+    const tr = tbody.insertRow();
+    tr.className = r.ph ? 'g-phase' : 'g-row';
+
+    const lbl = document.createElement('td');
+    lbl.className = 'lbl';
+    lbl.textContent = r.label;
+    if (r.ph) lbl.style.setProperty('--phase-color', `var(--${r.c})`);
+    tr.appendChild(lbl);
+
+    for (let i = 0; i < DAYS; i++) {
+      const td = document.createElement('td');
+      if (offset(i).getDay() === 1) td.classList.add('wk');
+
+      if (!r.ph && i >= r.s && i < r.e) {
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        const isF = i === r.s, isL = i === r.e - 1;
+        bar.style.left   = isF ? '2px' : '0';
+        bar.style.right  = isL ? '2px' : '0';
+        bar.style.background = `var(--${r.c})`;
+        bar.style.opacity = '0.85';
+        bar.style.borderRadius =
+          isF && isL ? '4px' :
+          isF        ? '4px 0 0 4px' :
+          isL        ? '0 4px 4px 0' : '0';
+        td.appendChild(bar);
+      }
+      tr.appendChild(td);
+    }
+  });
+
+  tbl.appendChild(tbody);
+  document.getElementById('gantt').appendChild(tbl);
+</script>
+</body>
+</html>
